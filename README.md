@@ -12,7 +12,9 @@ TFOG adds the following:
 - 1 Booster Pack
 - 1 Deck
 
+
 Cross-mod support:
 - [Talisman](https://github.com/SpectralPack/Talisman)
+
 
 ### [Official Discord](https://discord.gg/46NXTwCPYn)
