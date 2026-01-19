@@ -3,7 +3,6 @@ SMODS.Joker{ --Shedletsky
     key = "shedletsky",
     config = {
         extra = {
-            counter = 0,
             pb_x_mult_6ba64c0e = 0.15,
             odds = 8,
             dollars0_min = NaN,
@@ -43,7 +42,7 @@ SMODS.Joker{ --Shedletsky
     loc_vars = function(self, info_queue, card)
         
         local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'j_tfog_shedletsky') 
-        return {vars = {card.ability.extra.counter, new_numerator, new_denominator}}
+        return {vars = {new_numerator, new_denominator}}
     end,
     
     calculate = function(self, card, context)

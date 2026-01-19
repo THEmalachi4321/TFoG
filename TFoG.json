@@ -9,7 +9,7 @@
   "description": "Forsaken Survivors and Killers in Balatro. Made using the website: Joker Forge.",
   "prefix": "tfog",
   "main_file": "main.lua",
-  "version": "1.0.0~BETA",
+  "version": "1.0.0.1~BETA",
   "priority": 0,
   "badge_colour": "000000",
   "badge_text_colour": "FFFFFF",
