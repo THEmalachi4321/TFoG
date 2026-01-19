@@ -17,7 +17,7 @@ SMODS.Joker{ --Two Time - Milestone I
             [5] = 'a Random{C:dark_edition} Negative{} {C:spectral}Spectral{} card.'
         },
         ['unlock'] = {
-            [1] = 'Win a run while having {C:attention}5{} Jokers or less.'
+            [1] = 'Win a run with more than {C:money}$100{}.'
         }
     },
     pos = {
@@ -109,7 +109,7 @@ SMODS.Joker{ --Two Time - Milestone I
     check_for_unlock = function(self,args)
         if args.type == "win" then
             local count = 0
-            return true
+            return G.GAME.dollars > to_big(100)
         end
         return false
     end

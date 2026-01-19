@@ -3,7 +3,7 @@ SMODS.Joker{ --Builderman - Milestone I
     key = "buildermanmilestonei",
     config = {
         extra = {
-            dollars0 = 10,
+            dollars0 = 8,
             pb_p_dollars_51282158 = 2,
             odds = 6,
             repetitions0 = 2
@@ -15,7 +15,7 @@ SMODS.Joker{ --Builderman - Milestone I
             [1] = 'All scoring cards gain {C:money}$2{}. {C:green}#1# in #2#{}',
             [2] = 'chance to retrigger scoring cards twice.',
             [3] = 'After defeating a {C:attention}Boss{} Blind,',
-            [4] = 'exchanges {C:money}$10{} for a random {C:planet}Planet{} card.',
+            [4] = 'exchanges {C:money}$8{} for a random {C:planet}Planet{} card.',
             [5] = ''
         },
         ['unlock'] = {
@@ -57,16 +57,16 @@ SMODS.Joker{ --Builderman - Milestone I
     
     calculate = function(self, card, context)
         if context.end_of_round and context.main_eval and G.GAME.blind.boss  then
-            if to_big(G.GAME.dollars) >= to_big(10) then
+            if to_big(G.GAME.dollars) >= to_big(8) then
                 return {
                     
                     func = function()
                         
                         local current_dollars = G.GAME.dollars
-                        local target_dollars = G.GAME.dollars - 10
+                        local target_dollars = G.GAME.dollars - 8
                         local dollar_value = target_dollars - current_dollars
                         ease_dollars(dollar_value)
-                        card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "-"..tostring(10), colour = G.C.MONEY})
+                        card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "-"..tostring(8), colour = G.C.MONEY})
                         return true
                     end,
                     extra = {
