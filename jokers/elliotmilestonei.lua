@@ -53,11 +53,11 @@ SMODS.Joker{ --Elliot - Milestone I
         else
             error("JOKERFORGE: Invalid key in infoQueues. \"e_foil\" isn't a valid Object key, Did you misspell it or forgot a modprefix?")
         end
-        local info_queue_1 = G.P_CENTERS["e_holographic"]
+        local info_queue_1 = G.P_CENTERS["e_holo"]
         if info_queue_1 then
             info_queue[#info_queue + 1] = info_queue_1
         else
-            error("JOKERFORGE: Invalid key in infoQueues. \"e_holographic\" isn't a valid Object key, Did you misspell it or forgot a modprefix?")
+            error("JOKERFORGE: Invalid key in infoQueues. \"e_holo\" isn't a valid Object key, Did you misspell it or forgot a modprefix?")
         end
         local info_queue_2 = G.P_CENTERS["e_polychrome"]
         if info_queue_2 then
