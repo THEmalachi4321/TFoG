@@ -1975,7 +1975,7 @@
       "objectType": "joker",
       "info_queues": [
         "e_foil",
-        "e_holographic",
+        "e_holo",
         "e_polychrome"
       ],
       "card_dependencies": []
@@ -2179,7 +2179,7 @@
       "objectType": "joker",
       "info_queues": [
         "e_foil",
-        "e_holographic",
+        "e_holo",
         "e_polychrome"
       ],
       "card_dependencies": []
@@ -5337,5 +5337,5 @@
     }
   ],
   "version": "1.0.0",
-  "exportedAt": "2026-01-20T00:59:45.291Z"
+  "exportedAt": "2026-01-20T01:16:26.324Z"
 }
