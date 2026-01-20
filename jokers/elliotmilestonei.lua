@@ -11,7 +11,7 @@ SMODS.Joker{ --Elliot - Milestone I
     loc_txt = {
         ['name'] = 'Elliot - Milestone I',
         ['text'] = {
-            [1] = 'Adds cards based on probabilities.',
+            [1] = 'Adds cards to deck based on probabilities.',
             [2] = '{C:green}#1# in #2#{} chance {C:attention}Foil{}, {C:green}#3# in #4#{} chance {C:attention}Holographic{},',
             [3] = '{C:green}#5# in #6#{} chance {C:attention}Polychrome{}.'
         },
@@ -47,6 +47,24 @@ SMODS.Joker{ --Elliot - Milestone I
     
     loc_vars = function(self, info_queue, card)
         
+        local info_queue_0 = G.P_CENTERS["e_foil"]
+        if info_queue_0 then
+            info_queue[#info_queue + 1] = info_queue_0
+        else
+            error("JOKERFORGE: Invalid key in infoQueues. \"e_foil\" isn't a valid Object key, Did you misspell it or forgot a modprefix?")
+        end
+        local info_queue_1 = G.P_CENTERS["e_holographic"]
+        if info_queue_1 then
+            info_queue[#info_queue + 1] = info_queue_1
+        else
+            error("JOKERFORGE: Invalid key in infoQueues. \"e_holographic\" isn't a valid Object key, Did you misspell it or forgot a modprefix?")
+        end
+        local info_queue_2 = G.P_CENTERS["e_polychrome"]
+        if info_queue_2 then
+            info_queue[#info_queue + 1] = info_queue_2
+        else
+            error("JOKERFORGE: Invalid key in infoQueues. \"e_polychrome\" isn't a valid Object key, Did you misspell it or forgot a modprefix?")
+        end
         local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'j_tfog_elliotmilestonei')
         local new_numerator2, new_denominator2 = SMODS.get_probability_vars(card, 1, card.ability.extra.odds2, 'j_tfog_elliotmilestonei')
         local new_numerator3, new_denominator3 = SMODS.get_probability_vars(card, 1, card.ability.extra.odds3, 'j_tfog_elliotmilestonei')

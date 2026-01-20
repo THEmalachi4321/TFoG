@@ -10,7 +10,7 @@ SMODS.Back {
     loc_txt = {
         name = 'Spectre Deck',
         text = {
-            [1] = 'Start with {C:attention}2{} Jokers.',
+            [1] = 'Start with {C:attention}2{} {C:common}Cheap{} Jokers.',
             [2] = '{C:attention}+3{} Joker Slots.',
             [3] = '{C:red}Starting hand size is 5.{}'
         },
@@ -26,7 +26,7 @@ SMODS.Back {
                 play_sound('timpani')
                 if #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit then
                     G.GAME.joker_buffer = G.GAME.joker_buffer + 1
-                    local new_joker = SMODS.add_card({ set = 'tfog_tfog_jokers' })
+                    local new_joker = SMODS.add_card({ set = 'Joker', rarity = 'tfog_cheap' })
                     if new_joker then
                     end
                     G.GAME.joker_buffer = 0
@@ -39,7 +39,7 @@ SMODS.Back {
                 play_sound('timpani')
                 if #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit then
                     G.GAME.joker_buffer = G.GAME.joker_buffer + 1
-                    local new_joker = SMODS.add_card({ set = 'tfog_tfog_jokers' })
+                    local new_joker = SMODS.add_card({ set = 'Joker', rarity = 'tfog_cheap' })
                     if new_joker then
                     end
                     G.GAME.joker_buffer = 0
