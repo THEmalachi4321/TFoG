@@ -20,7 +20,7 @@ SMODS.Joker{ --Elliot
         }
     },
     pos = {
-        x = 6,
+        x = 5,
         y = 0
     },
     display_size = {
@@ -28,7 +28,7 @@ SMODS.Joker{ --Elliot
         h = 95 * 1
     },
     cost = 7,
-    rarity = "tfog_moderate",
+    rarity = "tfog_cheap",
     blueprint_compat = false,
     eternal_compat = true,
     perishable_compat = true,

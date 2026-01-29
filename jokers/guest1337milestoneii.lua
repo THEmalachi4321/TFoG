@@ -1,36 +1,38 @@
 
-SMODS.Joker{ --Guest 1337 - Milestone I
-    key = "guest1337milestonei",
+SMODS.Joker{ --Guest 1337 - Milestone II
+    key = "guest1337milestoneii",
     config = {
         extra = {
-            odds = 4,
-            mult0 = 10,
-            chips0 = 35,
-            dollars0 = 5
+            odds = 3,
+            mult0 = 20,
+            dollars0 = 5,
+            odds2 = 3
         }
     },
     loc_txt = {
-        ['name'] = 'Guest 1337 - Milestone I',
+        ['name'] = 'Guest 1337 - Milestone II',
         ['text'] = {
-            [1] = '{C:red}+10{} Mult and {C:blue}+35{} Chips.',
-            [2] = 'After defeating a {C:attention}Boss{} Blind, gain {C:money}$5{} and',
-            [3] = '{C:green}#1# in #2#{} chance to create a Random Joker.'
+            [1] = '{C:red}+20{} Mult.',
+            [2] = 'After defeating a {C:attention}Boss{} Blind, gain {C:money}$10{} and',
+            [3] = '{C:green}#1# in #2#{} chance to create a Random Joker.',
+            [4] = '{C:green}#1# in #2#{} chance to prevent death',
+            [5] = 'if you don\'t exceed the Blind Goal.'
         },
         ['unlock'] = {
-            [1] = 'Score {C:attention}75,000{} or more',
+            [1] = 'Score {C:attention}1,000,000{} or more',
             [2] = '{C:blue}Chips{} in one hand.'
         }
     },
     pos = {
-        x = 6,
-        y = 2
+        x = 7,
+        y = 3
     },
     display_size = {
         w = 71 * 1, 
         h = 95 * 1
     },
-    cost = 8,
-    rarity = "tfog_milestone_i",
+    cost = 10,
+    rarity = "tfog_milestone_ii",
     blueprint_compat = false,
     eternal_compat = true,
     perishable_compat = true,
@@ -49,14 +51,15 @@ SMODS.Joker{ --Guest 1337 - Milestone I
     
     loc_vars = function(self, info_queue, card)
         
-        local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'j_tfog_guest1337milestonei') 
-        return {vars = {new_numerator, new_denominator}}
+        local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'j_tfog_guest1337milestoneii')
+        local new_numerator2, new_denominator2 = SMODS.get_probability_vars(card, 1, card.ability.extra.odds2, 'j_tfog_guest1337milestoneii')
+        return {vars = {new_numerator, new_denominator, new_numerator2, new_denominator2}}
     end,
     
     calculate = function(self, card, context)
         if context.end_of_round and context.main_eval and G.GAME.blind.boss  then
             if true then
-                if SMODS.pseudorandom_probability(card, 'group_0_e872f359', 1, card.ability.extra.odds, 'j_tfog_guest1337milestonei', false) then
+                if SMODS.pseudorandom_probability(card, 'group_0_e872f359', 1, card.ability.extra.odds, 'j_tfog_guest1337milestoneii', false) then
                     G.E_MANAGER:add_event(Event({
                         func = function()
                             play_sound("tfog_charge")
@@ -92,11 +95,7 @@ SMODS.Joker{ --Guest 1337 - Milestone I
         end
         if context.cardarea == G.jokers and context.joker_main  then
             return {
-                mult = 10,
-                extra = {
-                    chips = 35,
-                    colour = G.C.CHIPS
-                }
+                mult = 20
             }
         end
         if context.end_of_round and context.game_over == false and context.main_eval  then
@@ -122,11 +121,19 @@ SMODS.Joker{ --Guest 1337 - Milestone I
                 }
             end
         end
+        if context.end_of_round and context.game_over and context.main_eval  then
+            if to_big(G.GAME.chips / G.GAME.blind.chips) < to_big(1) then
+                if SMODS.pseudorandom_probability(card, 'group_0_03da7390', 1, card.ability.extra.odds, 'j_tfog_guest1337milestoneii', false) then
+                    SMODS.calculate_effect({saved = true}, card)
+                    card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = localize('k_saved_ex'), colour = G.C.RED})
+                end
+            end
+        end
     end,
     check_for_unlock = function(self,args)
         if args.type == "chip_score" then
             local count = 0
-            return args.chips > to_big(75000)
+            return args.chips > to_big(1000000)
         end
         return false
     end

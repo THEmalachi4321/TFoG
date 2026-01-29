@@ -63,10 +63,40 @@ SMODS.Rarity {
     pools = {
         ["Joker"] = true
     },
-    default_weight = 0.5,
+    default_weight = 0,
     badge_colour = HEX('f5bd23'),
     loc_txt = {
         name = "Milestone I"
+    },
+    get_weight = function(self, weight, object_type)
+        return weight
+    end,
+}
+
+SMODS.Rarity {
+    key = "milestone_ii",
+    pools = {
+        ["Joker"] = true
+    },
+    default_weight = 0,
+    badge_colour = HEX('f5bd23'),
+    loc_txt = {
+        name = "Milestone II"
+    },
+    get_weight = function(self, weight, object_type)
+        return weight
+    end,
+}
+
+SMODS.Rarity {
+    key = "summon_msii",
+    pools = {
+        ["Joker"] = true
+    },
+    default_weight = 0,
+    badge_colour = HEX('000000'),
+    loc_txt = {
+        name = "Summon (MSII)"
     },
     get_weight = function(self, weight, object_type)
         return weight

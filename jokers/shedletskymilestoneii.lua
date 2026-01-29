@@ -1,36 +1,38 @@
 
-SMODS.Joker{ --Shedletsky - Milestone I
-    key = "shedletskymilestonei",
+SMODS.Joker{ --Shedletsky - Milestone II
+    key = "shedletskymilestoneii",
     config = {
         extra = {
             pb_x_mult_6ba64c0e = 0.25,
-            odds = 12,
-            dollars0_min = NaN,
-            dollars0_max = 5
+            odds = 20,
+            odds2 = 12,
+            dollars0 = 5
         }
     },
     loc_txt = {
-        ['name'] = 'Shedletsky - Milestone I',
+        ['name'] = 'Shedletsky - Milestone II',
         ['text'] = {
-            [1] = 'Every hand played gives {C:money}$3-5{}.',
+            [1] = 'Every hand played gives {C:money}$5{}.',
             [2] = 'If any scoring cards are either {C:clubs}Clubs{} or {C:spades}Spades{},',
-            [3] = 'add {X:mult,C:white}x0.25{} Mult to those cards. {C:green}#1# in #2#{} chance',
-            [4] = 'for those scoring cards to be destroyed.'
+            [3] = 'add {X:mult,C:white}x0.25{} Mult to those cards. {C:green}#1# in #2#{} for those',
+            [4] = 'scoring cards to be destroyed.',
+            [5] = '{C:green}#3# in #4#{} chance to duplicate any scoring card.'
         },
         ['unlock'] = {
-            [1] = 'Win a run with more than {C:money}$50{}.'
+            [1] = 'Score {C:attention}850,000{} or more',
+            [2] = '{C:blue}Chips{} in one hand.'
         }
     },
     pos = {
-        x = 8,
-        y = 2
+        x = 9,
+        y = 3
     },
     display_size = {
         w = 71 * 1, 
         h = 95 * 1
     },
     cost = 10,
-    rarity = "tfog_milestone_i",
+    rarity = "tfog_milestone_ii",
     blueprint_compat = false,
     eternal_compat = true,
     perishable_compat = true,
@@ -49,8 +51,9 @@ SMODS.Joker{ --Shedletsky - Milestone I
     
     loc_vars = function(self, info_queue, card)
         
-        local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'j_tfog_shedletskymilestonei') 
-        return {vars = {new_numerator, new_denominator}}
+        local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'j_tfog_shedletskymilestoneii')
+        local new_numerator2, new_denominator2 = SMODS.get_probability_vars(card, 1, card.ability.extra.odds2, 'j_tfog_shedletskymilestoneii')
+        return {vars = {new_numerator, new_denominator, new_numerator2, new_denominator2}}
     end,
     
     calculate = function(self, card, context)
@@ -66,7 +69,7 @@ SMODS.Joker{ --Shedletsky - Milestone I
                     extra = { message = localize('k_upgrade_ex'), colour = G.C.MULT }, card = card
                     ,
                     func = function()
-                        if SMODS.pseudorandom_probability(card, 'group_0_56deeb6f', 1, card.ability.extra.odds, 'j_tfog_shedletskymilestonei', false) then
+                        if SMODS.pseudorandom_probability(card, 'group_0_56deeb6f', 1, card.ability.extra.odds, 'j_tfog_shedletskymilestoneii', false) then
                             G.E_MANAGER:add_event(Event({
                                 func = function()
                                     play_sound("tfog_slash")
@@ -76,7 +79,7 @@ SMODS.Joker{ --Shedletsky - Milestone I
                             }))
                             
                         end
-                        if SMODS.pseudorandom_probability(card, 'group_1_56deeb6f', 1, card.ability.extra.odds, 'j_tfog_shedletskymilestonei', false) then
+                        if SMODS.pseudorandom_probability(card, 'group_1_56deeb6f', 1, card.ability.extra.odds, 'j_tfog_shedletskymilestoneii', false) then
                             context.other_card.should_destroy = true
                             G.E_MANAGER:add_event(Event({
                                 func = function()
@@ -90,6 +93,23 @@ SMODS.Joker{ --Shedletsky - Milestone I
                         return true
                     end
                 }
+            elseif true then
+                if SMODS.pseudorandom_probability(card, 'group_0_c2642959', 1, card.ability.extra.odds2, 'j_tfog_shedletskymilestoneii', false) then
+                    G.playing_card = (G.playing_card and G.playing_card + 1) or 1
+                    local copied_card = copy_card(context.other_card, nil, nil, G.playing_card)
+                    copied_card:add_to_deck()
+                    G.deck.config.card_limit = G.deck.config.card_limit + 1
+                    table.insert(G.playing_cards, copied_card)
+                    G.hand:emplace(copied_card)
+                    playing_card_joker_effects({true})
+                    G.E_MANAGER:add_event(Event({
+                        func = function() 
+                            copied_card:start_materialize()
+                            return true
+                        end
+                    }))
+                    card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "Copied Card to Hand!", colour = G.C.GREEN})
+                end
             end
         end
         if context.cardarea == G.jokers and context.joker_main  then
@@ -98,19 +118,19 @@ SMODS.Joker{ --Shedletsky - Milestone I
                 func = function()
                     
                     local current_dollars = G.GAME.dollars
-                    local target_dollars = G.GAME.dollars + pseudorandom('RANGE:3|5', 3, 5)
+                    local target_dollars = G.GAME.dollars + 5
                     local dollar_value = target_dollars - current_dollars
                     ease_dollars(dollar_value)
-                    card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "+"..tostring(pseudorandom('RANGE:3|5', 3, 5)), colour = G.C.MONEY})
+                    card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "+"..tostring(5), colour = G.C.MONEY})
                     return true
                 end
             }
         end
     end,
     check_for_unlock = function(self,args)
-        if args.type == "win" then
+        if args.type == "chip_score" then
             local count = 0
-            return G.GAME.dollars > to_big(50)
+            return args.chips > to_big(850000)
         end
         return false
     end

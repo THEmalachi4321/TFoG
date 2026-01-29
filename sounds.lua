@@ -88,3 +88,10 @@ SMODS.Sound{
     pitch=1,
     volume=0.6,
 }
+
+SMODS.Sound{
+    key="tfog_coolkiddlaugh2",
+    path="tfog_coolkiddlaugh2.ogg",
+    pitch=1,
+    volume=0.6,
+}

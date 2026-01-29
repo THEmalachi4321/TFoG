@@ -20,7 +20,7 @@ SMODS.Joker{ --007n7 - Milestone I
         }
     },
     pos = {
-        x = 0,
+        x = 1,
         y = 2
     },
     display_size = {

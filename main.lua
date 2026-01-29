@@ -34,7 +34,7 @@ local NFS = require("nativefs")
 to_big = to_big or function(a) return a end
 lenient_bignum = lenient_bignum or function(a) return a end
 
-local jokerIndexList = {1,19,26,10,5,28,12,14,30,3,7,8,17,18,23,25,21,16,4,22,2,20,27,11,13,15,9,24,6,29}
+local jokerIndexList = {1,26,36,14,6,17,39,19,41,4,9,11,24,25,31,34,29,22,5,30,13,2,27,37,15,18,20,12,32,7,40,10,23,3,28,38,16,21,8,33,35}
 
 local function load_jokers_folder()
     local mod_path = SMODS.current_mod.path
@@ -99,29 +99,38 @@ SMODS.ObjectType({
     cards = {
         ["j_tfog__007n7"] = true,
         ["j_tfog__007n7milestonei"] = true,
+        ["j_tfog__007n7milestoneii"] = true,
         ["j_tfog__1x1x1x1"] = true,
         ["j_tfog_builderman"] = true,
         ["j_tfog_buildermanmilestonei"] = true,
+        ["j_tfog_buildermanmilestoneii"] = true,
         ["j_tfog_c00lkidd"] = true,
+        ["j_tfog_c00lkiddmilestonei"] = true,
         ["j_tfog_chance"] = true,
         ["j_tfog_chancemilestonei"] = true,
         ["j_tfog_dusekkar"] = true,
         ["j_tfog_dusekkarmilestonei"] = true,
+        ["j_tfog_dusekkarmilestoneii"] = true,
         ["j_tfog_elliot"] = true,
         ["j_tfog_elliotmilestonei"] = true,
         ["j_tfog_guest1337"] = true,
         ["j_tfog_guest1337milestonei"] = true,
+        ["j_tfog_guest1337milestoneii"] = true,
         ["j_tfog_guest666"] = true,
+        ["j_tfog_guest666milestonei"] = true,
         ["j_tfog_johndoe"] = true,
         ["j_tfog_noli"] = true,
         ["j_tfog_noob"] = true,
         ["j_tfog_noobmilestonei"] = true,
+        ["j_tfog_noobmilestoneii"] = true,
         ["j_tfog_nosferatu"] = true,
         ["j_tfog_shedletsky"] = true,
         ["j_tfog_shedletskymilestonei"] = true,
+        ["j_tfog_shedletskymilestoneii"] = true,
         ["j_tfog_slasher"] = true,
         ["j_tfog_taph"] = true,
         ["j_tfog_taphmilestonei"] = true,
+        ["j_tfog_taphmilestoneii"] = true,
         ["j_tfog_twotime"] = true,
         ["j_tfog_twotimemilestonei"] = true,
         ["j_tfog_veeronica"] = true
