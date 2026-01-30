@@ -78,7 +78,7 @@ SMODS.Joker{ --Taph - Milestone II
                             G.GAME.joker_buffer = G.GAME.joker_buffer + 1
                             G.E_MANAGER:add_event(Event({
                                 func = function()
-                                    local joker_card = SMODS.add_card({ set = 'Joker', key = 'j_tfog_subspacetripmine_msii' })
+                                    local joker_card = SMODS.add_card({ set = 'Joker', key = 'j_tfog_subspacetripminemsii' })
                                     if joker_card then
                                         
                                         

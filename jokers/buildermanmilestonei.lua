@@ -4,9 +4,8 @@ SMODS.Joker{ --Builderman - Milestone I
     config = {
         extra = {
             freejokerslots = 0,
-            dollars0 = 8,
             pb_p_dollars_51282158 = 1,
-            odds = 12
+            odds = 16
         }
     },
     loc_txt = {
@@ -15,7 +14,8 @@ SMODS.Joker{ --Builderman - Milestone I
             [1] = 'All scoring cards gain {C:money}$1{}.',
             [2] = 'After defeating a {C:attention}Boss{} Blind,',
             [3] = 'exchanges {C:money}$8{} for a random {C:planet}Planet{} card.',
-            [4] = '{C:green}#2# in #3#{} chance to create a Dispenser.'
+            [4] = 'When the round ends, {C:green}#2# in #3#{}',
+            [5] = 'chance to create a Dispenser.'
         },
         ['unlock'] = {
             [1] = 'Score {C:attention}150,000{} or more',
@@ -55,46 +55,6 @@ SMODS.Joker{ --Builderman - Milestone I
     end,
     
     calculate = function(self, card, context)
-        if context.end_of_round and context.main_eval and G.GAME.blind.boss  then
-            if to_big(G.GAME.dollars) >= to_big(8) then
-                return {
-                    
-                    func = function()
-                        
-                        local current_dollars = G.GAME.dollars
-                        local target_dollars = G.GAME.dollars - 8
-                        local dollar_value = target_dollars - current_dollars
-                        ease_dollars(dollar_value)
-                        card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "-"..tostring(8), colour = G.C.MONEY})
-                        return true
-                    end,
-                    extra = {
-                        func = function()
-                            
-                            for i = 1, math.min(1, G.consumeables.config.card_limit - #G.consumeables.cards) do
-                                G.E_MANAGER:add_event(Event({
-                                    trigger = 'after',
-                                    delay = 0.4,
-                                    func = function()
-                                        play_sound('timpani')
-                                        SMODS.add_card({ set = 'Planet', })                            
-                                        card:juice_up(0.3, 0.5)
-                                        return true
-                                    end
-                                }))
-                            end
-                            delay(0.6)
-                            
-                            if created_consumable then
-                                card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = localize('k_plus_planet'), colour = G.C.SECONDARY_SET.Planet})
-                            end
-                            return true
-                        end,
-                        colour = G.C.SECONDARY_SET.Planet
-                    }
-                }
-            end
-        end
         if context.individual and context.cardarea == G.play  then
             context.other_card.ability.perma_p_dollars = context.other_card.ability.perma_p_dollars or 0
             context.other_card.ability.perma_p_dollars = context.other_card.ability.perma_p_dollars + 1

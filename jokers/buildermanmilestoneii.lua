@@ -5,14 +5,15 @@ SMODS.Joker{ --Builderman - Milestone II
         extra = {
             freejokerslots = 0,
             pb_p_dollars_51282158 = 2,
-            odds = 12
+            odds = 14
         }
     },
     loc_txt = {
         ['name'] = 'Builderman - Milestone II',
         ['text'] = {
             [1] = 'All scoring cards gain {C:money}$2{}.',
-            [2] = '{C:green}#2# in #3#{} chance to create a Dispenser.'
+            [2] = 'When the round ends, {C:green}#2# in #3#{}',
+            [3] = 'chance to create a Dispenser.'
         },
         ['unlock'] = {
             [1] = 'Score {C:attention}1,250,000{} or more',
@@ -48,7 +49,7 @@ SMODS.Joker{ --Builderman - Milestone II
     loc_vars = function(self, info_queue, card)
         
         local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'j_tfog_buildermanmilestoneii') 
-        return {vars = {(((G.jokers and G.jokers.config.card_limit or 0) - #(G.jokers and (G.jokers and G.jokers.cards or {}) or {}))) * 25, new_numerator, new_denominator}}
+        return {vars = {(((G.jokers and G.jokers.config.card_limit or 0) - #(G.jokers and (G.jokers and G.jokers.cards or {}) or {}))) * 15, new_numerator, new_denominator}}
     end,
     
     calculate = function(self, card, context)
@@ -68,7 +69,7 @@ SMODS.Joker{ --Builderman - Milestone II
                 end
             end)() then
                 return {
-                    chips = (((G.jokers and G.jokers.config.card_limit or 0) - #(G.jokers and G.jokers.cards or {}))) * 25
+                    chips = (((G.jokers and G.jokers.config.card_limit or 0) - #(G.jokers and G.jokers.cards or {}))) * 15
                 }
             end
         end

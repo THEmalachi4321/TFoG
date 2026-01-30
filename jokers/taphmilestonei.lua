@@ -11,7 +11,7 @@ SMODS.Joker{ --Taph - Milestone I
         ['name'] = 'Taph - Milestone I',
         ['text'] = {
             [1] = 'Any cards that score will give',
-            [2] = '{C:red}+1.15{} Mult for every {C:money}$1{} you have.',
+            [2] = '{C:red}+1{} Mult for every {C:money}$1{} you have.',
             [3] = '{C:inactive}(Currently: {C:red}+#1#{} {C:inactive}Mult){}',
             [4] = 'If you have less than 5 Jokers, {X:mult,C:white}x1.75{} Mult.',
             [5] = 'At the end of the round, destroy Joker to the left.',
@@ -50,7 +50,7 @@ SMODS.Joker{ --Taph - Milestone I
     
     loc_vars = function(self, info_queue, card)
         
-        return {vars = {((G.GAME.dollars or 0)) * 1.15}}
+        return {vars = {(G.GAME.dollars or 0)}}
     end,
     
     calculate = function(self, card, context)
@@ -102,7 +102,7 @@ SMODS.Joker{ --Taph - Milestone I
         end
         if context.individual and context.cardarea == G.play  then
             return {
-                mult = (G.GAME.dollars) * 1.15
+                mult = G.GAME.dollars
             }
         end
     end,

@@ -5,8 +5,7 @@ SMODS.Joker{ --Builderman
         extra = {
             freejokerslots = 0,
             dollars0 = 10,
-            pb_p_dollars_51282158 = 0.5,
-            odds = 16
+            pb_p_dollars_51282158 = 0.5
         }
     },
     loc_txt = {
@@ -15,7 +14,7 @@ SMODS.Joker{ --Builderman
             [1] = 'All scoring cards gain {C:money}$0.5{}.',
             [2] = 'After defeating a {C:attention}Boss{} Blind,',
             [3] = 'exchanges {C:money}$10{} for a random {C:planet}Planet{} card.',
-            [4] = '{C:green}#2# in #3#{} chance to create a Dispenser.'
+            [4] = '{C:green}'
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'
@@ -41,8 +40,7 @@ SMODS.Joker{ --Builderman
     
     loc_vars = function(self, info_queue, card)
         
-        local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'j_tfog_builderman') 
-        return {vars = {(((G.jokers and G.jokers.config.card_limit or 0) - #(G.jokers and (G.jokers and G.jokers.cards or {}) or {}))) * 5, new_numerator, new_denominator}}
+        return {vars = {(((G.jokers and G.jokers.config.card_limit or 0) - #(G.jokers and (G.jokers and G.jokers.cards or {}) or {}))) * 5}}
     end,
     
     calculate = function(self, card, context)
@@ -104,35 +102,6 @@ SMODS.Joker{ --Builderman
                 return {
                     chips = (((G.jokers and G.jokers.config.card_limit or 0) - #(G.jokers and G.jokers.cards or {}))) * 5
                 }
-            end
-        end
-        if context.end_of_round and context.game_over == false and context.main_eval  then
-            if true then
-                if SMODS.pseudorandom_probability(card, 'group_0_666f2939', 1, card.ability.extra.odds, 'j_tfog_builderman', false) then
-                    SMODS.calculate_effect({func = function()
-                        
-                        local created_joker = false
-                        if #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit then
-                            created_joker = true
-                            G.GAME.joker_buffer = G.GAME.joker_buffer + 1
-                            G.E_MANAGER:add_event(Event({
-                                func = function()
-                                    local joker_card = SMODS.add_card({ set = 'Joker', key = 'j_tfog_dispenser' })
-                                    if joker_card then
-                                        
-                                        
-                                    end
-                                    G.GAME.joker_buffer = 0
-                                    return true
-                                end
-                            }))
-                        end
-                        if created_joker then
-                            card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = localize('k_plus_joker'), colour = G.C.BLUE})
-                        end
-                        return true
-                    end}, card)
-                end
             end
         end
     end

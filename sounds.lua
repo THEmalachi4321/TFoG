@@ -95,3 +95,10 @@ SMODS.Sound{
     pitch=1,
     volume=0.6,
 }
+
+SMODS.Sound{
+    key="tfog_explode",
+    path="tfog_explode.ogg",
+    pitch=1,
+    volume=0.6,
+}

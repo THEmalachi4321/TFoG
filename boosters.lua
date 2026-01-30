@@ -6,7 +6,7 @@ SMODS.Booster {
         text = {
             [1] = 'Choose {C:attention}1{} of up to {C:attention}3{}',
             [2] = 'Milestone I Jokers.',
-            [3] = '{C:inactive}(If none are unlocked, Joker will only appear.){}'
+            [3] = '{C:inactive}(If none are unlocked or all have been taken, Joker will only appear.){}'
         },
         group_name = "tfog_boosters"
     },
@@ -79,7 +79,7 @@ SMODS.Booster {
             text = {
                 [1] = 'Choose {C:attention}1{} of up to {C:attention}3{}',
                 [2] = 'Milestone II Jokers.',
-                [3] = '{C:inactive}(If none are unlocked, Joker will only appear.){}'
+                [3] = '{C:inactive}(If none are unlocked or all have been taken, Joker will only appear.){}'
             },
             group_name = "tfog_boosters"
         },
@@ -87,7 +87,7 @@ SMODS.Booster {
         cost = 12,
         atlas = "CustomBoosters",
         pos = { x = 1, y = 0 },
-        kind = 'Milestone II',
+        kind = 'Joker Pack',
         group_key = "tfog_boosters",
         hidden = true,
         loc_vars = function(self, info_queue, card)

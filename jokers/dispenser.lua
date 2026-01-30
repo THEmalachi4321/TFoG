@@ -27,7 +27,7 @@ SMODS.Joker{ --Dispenser
         w = 71 * 1, 
         h = 95 * 1
     },
-    cost = 1,
+    cost = 6,
     rarity = "tfog_summon",
     blueprint_compat = false,
     eternal_compat = true,
@@ -42,6 +42,18 @@ SMODS.Joker{ --Dispenser
             or args.source == 'rif' or args.source == 'rta' or args.source == 'sou' or args.source == 'uta' or args.source == 'wra'
         )
         and true
+    end,
+    
+    calculate = function(self, card, context)
+        if context.selling_self  then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    play_sound("tfog_explode")
+                    
+                    return true
+                end,
+            }))
+        end
     end
 }
 
