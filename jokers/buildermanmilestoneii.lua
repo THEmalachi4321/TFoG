@@ -12,7 +12,7 @@ SMODS.Joker{ --Builderman - Milestone II
         ['name'] = 'Builderman - Milestone II',
         ['text'] = {
             [1] = 'All scoring cards gain {C:money}$2{}.',
-            [2] = '{C:green}#1# in #3#{} chance to create a Dispenser.'
+            [2] = '{C:green}#2# in #3#{} chance to create a Dispenser.'
         },
         ['unlock'] = {
             [1] = 'Score {C:attention}1,250,000{} or more',

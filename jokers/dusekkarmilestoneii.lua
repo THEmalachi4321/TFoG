@@ -68,7 +68,7 @@ SMODS.Joker{ --Dusekkar - Milestone II
         if context.starting_shop  then
             if (function()
                 for i, v in pairs(G.jokers.cards) do
-                    if v.config.center.key == "j_builderman, buildermanmilestonei" then 
+                    if v.config.center.key == "j_tfog_builderman, tfog_buildermanmilestonei, tfog_buildermanmilestoneii" then 
                         return true
                     end
                 end
