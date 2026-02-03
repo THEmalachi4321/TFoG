@@ -137,7 +137,7 @@ SMODS.ObjectType({
         ["j_tfog_twotime"] = true,
         ["j_tfog_twotimemilestonei"] = true,
         ["j_tfog_twotimemilestoneii"] = true,
-        ["j_tfog_twotimemilestoneii_life2"] = true,
+        ["j_tfog_twotimemilestoneiirevived"] = true,
         ["j_tfog_veeronica"] = true
     },
 })

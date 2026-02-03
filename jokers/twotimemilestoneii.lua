@@ -14,7 +14,7 @@ SMODS.Joker{ --Two Time - Milestone II
             [2] = 'needed is cut to 60%.',
             [3] = '{C:red}+5{} Mult for every card that has a rank of 2.',
             [4] = '{C:inactive}(Currently: {C:red}+#1#{}{C:inactive} Mult){}{}',
-            [5] = 'Sell this card to transform him to his second life.'
+            [5] = 'Sell this card to transform them to their second life.'
         },
         ['unlock'] = {
             [1] = 'Win a run with more than {C:money}$200{}.'
@@ -84,7 +84,7 @@ SMODS.Joker{ --Two Time - Milestone II
                         G.GAME.joker_buffer = G.GAME.joker_buffer + 1
                         G.E_MANAGER:add_event(Event({
                             func = function()
-                                local joker_card = SMODS.add_card({ set = 'Joker', key = 'j_tfog_twotimemilestoneii_life2' })
+                                local joker_card = SMODS.add_card({ set = 'Joker', key = 'j_tfog_twotimemilestoneiirevived' })
                                 if joker_card then
                                     
                                     
