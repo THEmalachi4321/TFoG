@@ -16,12 +16,12 @@ SMODS.Joker{ --007n7 - Milestone II
             [3] = 'level up a random hand type.'
         },
         ['unlock'] = {
-            [1] = 'Score {C:attention}750,000{} or more',
+            [1] = 'Score {C:attention}900,000{} or more',
             [2] = '{C:blue}Chips{} in one hand.'
         }
     },
     pos = {
-        x = 3,
+        x = 4,
         y = 3
     },
     display_size = {
@@ -77,7 +77,7 @@ SMODS.Joker{ --007n7 - Milestone II
     check_for_unlock = function(self,args)
         if args.type == "chip_score" then
             local count = 0
-            return args.chips > to_big(750000)
+            return args.chips > to_big(900000)
         end
         return false
     end

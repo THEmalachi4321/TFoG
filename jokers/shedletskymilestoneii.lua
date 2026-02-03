@@ -3,7 +3,7 @@ SMODS.Joker{ --Shedletsky - Milestone II
     key = "shedletskymilestoneii",
     config = {
         extra = {
-            pb_x_mult_6ba64c0e = 0.25,
+            pb_x_mult_6ba64c0e = 0.35,
             odds = 20,
             odds2 = 12,
             dollars0 = 5
@@ -14,18 +14,18 @@ SMODS.Joker{ --Shedletsky - Milestone II
         ['text'] = {
             [1] = 'Every hand played gives {C:money}$5{}.',
             [2] = 'If any scoring cards are either {C:clubs}Clubs{} or {C:spades}Spades{},',
-            [3] = 'add {X:mult,C:white}x0.25{} Mult to those cards. {C:green}#1# in #2#{} for those',
+            [3] = 'add {X:mult,C:white}x0.35{} Mult to those cards. {C:green}#1# in #2#{} for those',
             [4] = 'scoring cards to be destroyed.',
             [5] = '{C:green}#3# in #4#{} chance to duplicate any scoring card.'
         },
         ['unlock'] = {
-            [1] = 'Score {C:attention}850,000{} or more',
+            [1] = 'Score {C:attention}1,250,000{} or more',
             [2] = '{C:blue}Chips{} in one hand.'
         }
     },
     pos = {
-        x = 9,
-        y = 3
+        x = 0,
+        y = 4
     },
     display_size = {
         w = 71 * 1, 
@@ -64,7 +64,7 @@ SMODS.Joker{ --Shedletsky - Milestone II
             context.other_card.should_destroy = false
             if context.other_card:is_suit("Spades") or context.other_card:is_suit("Clubs") then
                 context.other_card.ability.perma_x_mult = context.other_card.ability.perma_x_mult or 0
-                context.other_card.ability.perma_x_mult = context.other_card.ability.perma_x_mult + 0.25
+                context.other_card.ability.perma_x_mult = context.other_card.ability.perma_x_mult + 0.35
                 return {
                     extra = { message = localize('k_upgrade_ex'), colour = G.C.MULT }, card = card
                     ,
@@ -130,7 +130,7 @@ SMODS.Joker{ --Shedletsky - Milestone II
     check_for_unlock = function(self,args)
         if args.type == "chip_score" then
             local count = 0
-            return args.chips > to_big(850000)
+            return args.chips > to_big(1250000)
         end
         return false
     end

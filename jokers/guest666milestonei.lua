@@ -3,14 +3,14 @@ SMODS.Joker{ --Guest 666 - Milestone I
     key = "guest666milestonei",
     config = {
         extra = {
-            mult0 = 90,
-            xchips0 = 0.1
+            mult0 = 80,
+            xchips0 = 0.2
         }
     },
     loc_txt = {
         ['name'] = 'Guest 666 - Milestone I',
         ['text'] = {
-            [1] = '{C:red}+90{} Mult. {X:blue,C:white}x0.1{} Chips.',
+            [1] = '{C:red}+80{} Mult. {X:blue,C:white}x0.2{} Chips.',
             [2] = 'After defeating a {C:attention}Boss{} Blind,',
             [3] = 'destroys a random Joker.'
         },
@@ -20,7 +20,7 @@ SMODS.Joker{ --Guest 666 - Milestone I
         }
     },
     pos = {
-        x = 2,
+        x = 3,
         y = 3
     },
     display_size = {
@@ -48,9 +48,9 @@ SMODS.Joker{ --Guest 666 - Milestone I
     calculate = function(self, card, context)
         if context.cardarea == G.jokers and context.joker_main  then
             return {
-                mult = 90,
+                mult = 80,
                 extra = {
-                    x_chips = 0.1,
+                    x_chips = 0.2,
                     colour = G.C.DARK_EDITION
                 }
             }

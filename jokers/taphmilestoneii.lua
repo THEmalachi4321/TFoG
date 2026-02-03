@@ -4,7 +4,6 @@ SMODS.Joker{ --Taph - Milestone II
     config = {
         extra = {
             currentmoney = 0,
-            xmult0 = 1.75,
             odds = 4
         }
     },
@@ -23,7 +22,7 @@ SMODS.Joker{ --Taph - Milestone II
         }
     },
     pos = {
-        x = 5,
+        x = 6,
         y = 3
     },
     display_size = {
@@ -55,13 +54,6 @@ SMODS.Joker{ --Taph - Milestone II
     end,
     
     calculate = function(self, card, context)
-        if context.cardarea == G.jokers and context.joker_main  then
-            if to_big(#G.jokers.cards) < to_big(5) then
-                return {
-                    Xmult = 1.75
-                }
-            end
-        end
         if context.individual and context.cardarea == G.play  then
             return {
                 mult = (G.GAME.dollars) * 1.5

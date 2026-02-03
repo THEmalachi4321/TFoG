@@ -24,7 +24,7 @@ SMODS.Joker{ --Guest 1337 - Milestone II
         }
     },
     pos = {
-        x = 7,
+        x = 8,
         y = 3
     },
     display_size = {

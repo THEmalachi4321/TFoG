@@ -18,7 +18,7 @@ SMODS.Joker{ --Subspace Tripmine (MSII)
         }
     },
     pos = {
-        x = 0,
+        x = 5,
         y = 4
     },
     display_size = {

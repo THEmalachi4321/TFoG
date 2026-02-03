@@ -149,7 +149,7 @@ SMODS.Joker{ --c00lkidd - Milestone I
                 end
             }
         end
-        if context.buying_card and context.card.config.center.key == self.key and context.cardarea == G.jokers  then
+        if context.selling_self  then
             G.E_MANAGER:add_event(Event({
                 func = function()
                     play_sound("tfog_nofun")

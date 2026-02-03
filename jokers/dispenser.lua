@@ -9,11 +9,11 @@ SMODS.Joker{ --Dispenser
         ['name'] = 'Dispenser',
         ['text'] = {
             [1] = '{s:1.5}Passive Joker{}',
-            [2] = '{s:0.5}{}{C:inactive}(Does nothing.){}',
-            [3] = 'Every hand played, this Joker gives',
-            [4] = '{C:blue}Chips{} for every free Joker Slot you have,',
-            [5] = 'depending on which {C:attention}Builderman{} you own.',
-            [6] = '{C:inactive}(Spawned by Builderman.){}'
+            [2] = '{C:inactive}(Does nothing.){}',
+            [3] = 'Gives the ability for {C:attention}Builderman{} to add',
+            [4] = '{C:blue}Chips{} for every free Joker Slot, every hand.',
+            [5] = '{}{C:blue}Chips{} amount is dependant on each version.',
+            [6] = '{C:inactive}(Summoned by Builderman.){}'
         },
         ['unlock'] = {
             [1] = 'Unlocked by default.'

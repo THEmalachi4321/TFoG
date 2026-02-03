@@ -22,7 +22,7 @@ SMODS.Joker{ --Dusekkar - Milestone II
         }
     },
     pos = {
-        x = 6,
+        x = 7,
         y = 3
     },
     display_size = {
@@ -66,13 +66,25 @@ SMODS.Joker{ --Dusekkar - Milestone II
             end
         end
         if context.starting_shop  then
-            if (function()
+            if ((function()
                 for i, v in pairs(G.jokers.cards) do
-                    if v.config.center.key == "j_tfog_builderman, tfog_buildermanmilestonei, tfog_buildermanmilestoneii" then 
+                    if v.config.center.key == "j_tfog_builderman" then 
                         return true
                     end
                 end
-            end)() then
+            end)() or (function()
+                for i, v in pairs(G.jokers.cards) do
+                    if v.config.center.key == "j_tfog_buildermanmilestonei" then 
+                        return true
+                    end
+                end
+            end)() or (function()
+                for i, v in pairs(G.jokers.cards) do
+                    if v.config.center.key == "j_tfog_buildermanmilestoneii" then 
+                        return true
+                    end
+                end
+            end)()) then
                 return {
                     
                     func = function()

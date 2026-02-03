@@ -16,12 +16,12 @@ SMODS.Joker{ --Builderman - Milestone II
             [3] = 'chance to create a Dispenser.'
         },
         ['unlock'] = {
-            [1] = 'Score {C:attention}1,250,000{} or more',
+            [1] = 'Score {C:attention}1,100,000{} or more',
             [2] = '{C:blue}Chips{} in one hand.'
         }
     },
     pos = {
-        x = 8,
+        x = 9,
         y = 3
     },
     display_size = {
@@ -106,7 +106,7 @@ SMODS.Joker{ --Builderman - Milestone II
     check_for_unlock = function(self,args)
         if args.type == "chip_score" then
             local count = 0
-            return args.chips > to_big(1250000)
+            return args.chips > to_big(1100000)
         end
         return false
     end

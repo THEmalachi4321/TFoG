@@ -102,3 +102,11 @@ SMODS.Sound{
     pitch=1,
     volume=0.6,
 }
+
+SMODS.Sound{
+    key="music_transformed",
+    path="music_transformed.ogg",
+    pitch=1,
+    volume=0.6,
+    replace="music1"
+}

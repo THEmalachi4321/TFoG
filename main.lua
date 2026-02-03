@@ -34,7 +34,7 @@ local NFS = require("nativefs")
 to_big = to_big or function(a) return a end
 lenient_bignum = lenient_bignum or function(a) return a end
 
-local jokerIndexList = {1,26,36,14,6,17,39,19,41,4,9,11,24,25,31,34,29,22,5,30,13,2,27,37,15,18,20,12,32,7,40,10,23,3,28,38,16,21,8,33,35}
+local jokerIndexList = {1,29,39,15,6,18,42,20,46,4,9,12,25,28,34,37,32,23,5,33,14,2,30,40,16,19,21,13,35,7,43,10,26,24,3,31,41,17,22,8,36,44,45,11,27,38}
 
 local function load_jokers_folder()
     local mod_path = SMODS.current_mod.path
@@ -106,6 +106,7 @@ SMODS.ObjectType({
         ["j_tfog_buildermanmilestoneii"] = true,
         ["j_tfog_c00lkidd"] = true,
         ["j_tfog_c00lkiddmilestonei"] = true,
+        ["j_tfog_c00lkiddmilestoneii"] = true,
         ["j_tfog_chance"] = true,
         ["j_tfog_chancemilestonei"] = true,
         ["j_tfog_dusekkar"] = true,
@@ -119,6 +120,8 @@ SMODS.ObjectType({
         ["j_tfog_guest666"] = true,
         ["j_tfog_guest666milestonei"] = true,
         ["j_tfog_johndoe"] = true,
+        ["j_tfog_johndoemilestonei"] = true,
+        ["j_tfog_johndoemilestoneii"] = true,
         ["j_tfog_noli"] = true,
         ["j_tfog_noob"] = true,
         ["j_tfog_noobmilestonei"] = true,
@@ -133,6 +136,8 @@ SMODS.ObjectType({
         ["j_tfog_taphmilestoneii"] = true,
         ["j_tfog_twotime"] = true,
         ["j_tfog_twotimemilestonei"] = true,
+        ["j_tfog_twotimemilestoneii"] = true,
+        ["j_tfog_twotimemilestoneii_life2"] = true,
         ["j_tfog_veeronica"] = true
     },
 })
