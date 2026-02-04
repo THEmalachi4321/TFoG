@@ -3,7 +3,7 @@ SMODS.Joker{ --Two Time - Milestone II
     key = "twotimemilestoneii",
     config = {
         extra = {
-            _2sinhand = 0,
+            _2sindeck = 0,
             blind_size0 = 0.6
         }
     },
@@ -12,7 +12,7 @@ SMODS.Joker{ --Two Time - Milestone II
         ['text'] = {
             [1] = 'When {C:attention}Boss{} Blind is selected, the requirements',
             [2] = 'needed is cut to 60%.',
-            [3] = '{C:red}+5{} Mult for every card that has a rank of 2.',
+            [3] = '{C:red}+5{} Mult for every card in your deck that has a rank of 2.',
             [4] = '{C:inactive}(Currently: {C:red}+#1#{}{C:inactive} Mult){}{}',
             [5] = 'Sell this card to transform them to their second life.'
         },
@@ -48,7 +48,7 @@ SMODS.Joker{ --Two Time - Milestone II
     
     loc_vars = function(self, info_queue, card)
         
-    return {vars = {(((function() local count = 0; for _, card in ipairs(G.hand and G.hand.cards or {}) do if card.base.id == 2 then count = count + 1 end end; return count end)() or 0)) * 5}}
+    return {vars = {(function() local count = 0; for _, card in ipairs(G.playing_cards or {}) do if card.base.id == 2 then count = count + 1 end end; return count end)()}}
     end,
     
     calculate = function(self, card, context)
@@ -71,7 +71,7 @@ SMODS.Joker{ --Two Time - Milestone II
         end
         if context.cardarea == G.jokers and context.joker_main  then
             return {
-            mult = ((function() local count = 0; for _, card in ipairs(G.hand and G.hand.cards or {}) do if card.base.id == 2 then count = count + 1 end end; return count end)()) * 5
+            mult = (function() local count = 0; for _, card in ipairs(G.playing_cards or {}) do if card.base.id == 2 then count = count + 1 end end; return count end)()
             }
         end
         if context.selling_self  then
