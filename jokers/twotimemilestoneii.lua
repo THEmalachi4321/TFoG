@@ -48,7 +48,7 @@ SMODS.Joker{ --Two Time - Milestone II
     
     loc_vars = function(self, info_queue, card)
         
-    return {vars = {(function() local count = 0; for _, card in ipairs(G.playing_cards or {}) do if card.base.id == 2 then count = count + 1 end end; return count end)()}}
+    return {vars = {((function() local count = 0; for _, card in ipairs(G.playing_cards or {}) do if card.base.id == 2 then count = count + 1 end end; return count end)()) * 5}}
     end,
     
     calculate = function(self, card, context)
@@ -71,7 +71,7 @@ SMODS.Joker{ --Two Time - Milestone II
         end
         if context.cardarea == G.jokers and context.joker_main  then
             return {
-            mult = (function() local count = 0; for _, card in ipairs(G.playing_cards or {}) do if card.base.id == 2 then count = count + 1 end end; return count end)()
+            mult = ((function() local count = 0; for _, card in ipairs(G.playing_cards or {}) do if card.base.id == 2 then count = count + 1 end end; return count end)()) * 5
             }
         end
         if context.selling_self  then
