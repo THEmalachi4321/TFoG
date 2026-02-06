@@ -15,7 +15,7 @@ SMODS.Joker{ --Dusekkar - Milestone II
             [1] = 'Every time a Booster Pack is',
             [2] = 'opened, {C:green}#1# in #2#{} chance to',
             [3] = 'gain {C:attention}+1{} Joker Slot.',
-            [4] = 'If you have {C:attention}Builderman{}, {C:green}#3 in #4#{} chance',
+            [4] = 'If you have {C:attention}Builderman{}, {C:green}#3# in #4#{} chance',
             [5] = 'to add an extra slot to the shop.'
         },
         ['unlock'] = {
